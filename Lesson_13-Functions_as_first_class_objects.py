@@ -43,4 +43,4 @@ def remove_negatives(nums):
 if choose_func(nums1, square_nums, remove_negatives) == [1, 4, 9, 16, 25]: 
     print(square_nums(nums1))
 if choose_func(nums2, square_nums, remove_negatives) == [1, 3, 5]:
-     print(remove_negatives(nums2))
+    print(remove_negatives(nums2))
