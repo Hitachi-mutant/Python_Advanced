@@ -1,0 +1,6 @@
+Error Type: IndexError. Message: list index out of range
+Error Type: ZeroDivisionError. Message: division by zero
+Error Type: TypeError. Message: unsupported operand type(s) for +: 'int' and 'str'
+Error Type: IndexError. Message: list index out of range
+Error Type: ZeroDivisionError. Message: division by zero
+Error Type: TypeError. Message: unsupported operand type(s) for +: 'int' and 'str'
