@@ -23,12 +23,12 @@ which returns the dog’s age in human equivalent.'''
 
 class Dog:
     age_factor = 7
-    def __init__(self, dogs_age):
-        self.dogs_age = dogs_age
-    def human_age(self):
-        print(f'If your dog is {self.dogs_age} years old, it means that he/she is {self.dogs_age * self.age_factor} in dog-years')
+    def __init__(self, human_age):
+        self.human_age = human_age
+    def dogs_age(self):
+        print(f'If your dog is {self.human_age} years old, it means that he/she is {self.human_age * self.age_factor} in dog-years')
 call_class = Dog(4)
-call_class.human_age()
+call_class.dogs_age()
 
 
 '''Task 3 - TV controller:
@@ -60,25 +60,26 @@ class TVController:
     def next_channel(self, channel = default_channel):
         for ch in self.CHANNELS:
             if ch == self.CHANNELS[channel]:
-                    print(ch)
-                    break
+                print(ch)
+                break
 
     def previous_channel(self, channel = default_channel):
         for ch in self.CHANNELS:
             if ch == self.CHANNELS[channel - 1]:
-                    print(ch)
-                    break
+                print(ch)
+                break
 
     def current_channel(self, default_channel):
             print(self.CHANNELS[default_channel - 1])
 
     def is_exist(self, channel):
-        if channel not in CHANNELS:
-            print('No')
         for ch in self.CHANNELS:
             if ch == channel:
-                    print('Yes')
-                    break
+                print('Yes')
+                break
+            else: 
+                print('No')
+                break
 
 CHANNELS = ["BBC", "Discovery", "TV1000"]
 controller = TVController(CHANNELS)

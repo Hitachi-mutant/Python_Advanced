@@ -43,6 +43,7 @@ class Student(Person):
 mr_Edison = Teacher('Robert', 'Edison', 43, 'History', 36)
 mr_Pool = Teacher('Tom', 'Pool', 51, 'Geography', 41)
 mrs_Smith = Teacher('Anna', 'Smith', 27, 'English', 24)
+
 teachers = [mr_Edison, mr_Pool, mrs_Smith]
 
 for teacher in teachers:
@@ -55,6 +56,7 @@ student_2 = Student('Sansa', 'Stark', 16, {'History' : 88, 'Geography' : 58, 'En
 student_3 = Student('Aria', 'Stark', 15, {'History' : 43, 'Geography' : 95, 'English' : 89}, 73)
 
 students = [student_1, student_2, student_3]
+
 for student in students:
     print(student.student_card)
 
@@ -128,15 +130,14 @@ class ProductStore:
                     product['amount'] -= amount_to_sell
                     return self.products
                 else:
-                    print("Not enough amount to sell.")
-                    return None
-        raise ValueError("Product not found in the store.")
+                    return f'Not enough amount of "{product_to_sell}" to sell.'
+        raise ValueError(f'Product "{product_to_sell}" is not found in the store.')
     
     def get_product_info(self, info_about_product):
         for product in self.products:
             if product['name'] == info_about_product:
                 return product['name'], product['amount']
-        raise ValueError("Product not found in the store.")
+        raise ValueError(f'There is no information about "{info_about_product}".')
     
 p1 = Product('Sport', 'Football T-Shirt', 100)
 p2 = Product('Food', 'Ramen', 1.5)
@@ -147,12 +148,18 @@ s.add(p1, 10)
 s.add(p2, 300)
 
 s.list_products()
+
 print(s.sell('Ramen', 10))
 print(s.get_product_info('Ramen'))     #('Ramen', 290)
+print(s.sell('Football T-Shirt', 50))
 
 try:
     s.sell('Sushi', 10)
-    print(s.get_product_info('Sushi'))
+except ValueError as e:
+    print(e)
+
+try:
+    s.get_product_info('Hoody')
 except ValueError as e:
     print(e)
 

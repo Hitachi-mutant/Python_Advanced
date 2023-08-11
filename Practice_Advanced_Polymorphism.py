@@ -578,90 +578,107 @@ check seat availability, calculate flight duration, and display flight informati
 # Створіть клас Prize, який представляє приз з можливістю додавання двох призів, порівняння їх за вартістю або категорією, а також виведення опису призу у 
 # зрозумілому форматі.
 
-class Prize:
-    def __init__(self, prize1, value_prize1, prize2, value_prize2):
-        self.prize1 = prize1
-        self.prize2 = prize2
-        self.value_prize1 = value_prize1
-        self.value_prize2 = value_prize2
+# class Prize:
+#     def __init__(self, prize1, value_prize1, prize2, value_prize2):
+#         self.prize1 = prize1
+#         self.prize2 = prize2
+#         self.value_prize1 = value_prize1
+#         self.value_prize2 = value_prize2
         
-    def __str__(self):
-        return f'the first prize is {self.prize1}, the second prize {self.prize2}'
+#     def __str__(self):
+#         return f'the first prize is {self.prize1}, the second prize {self.prize2}'
 
-    def __eq__(self):
-        print(f'this is the value of the first prize self{self.value_prize1}, this is of the second {self.value_prize2}')
-        return self.value_prize1 == self.value_prize2
+#     def __eq__(self):
+#         print(f'this is the value of the first prize self{self.value_prize1}, this is of the second {self.value_prize2}')
+#         return self.value_prize1 == self.value_prize2
     
         
-prize1 = Prize("A cat", "Priceless", "a Desk", "Priceless")
-print(prize1.__eq__())
-print(prize1.__str__())
+# prize1 = Prize("A cat", "Priceless", "a Desk", "Priceless")
+# print(prize1.__eq__())
+# print(prize1.__str__())
 
 # Завдання 2: Клас "Музичний трек"
 # Створіть клас MusicTrack, який представляє музичний трек з можливістю додавання двох треків (комбінація імен треків), порівняння треків за тривалістю або стилем, а 
 # також виведення назви треку у зрозумілому форматі.
 
-class MusicPlaylist:
-    def __init__(self, name_of_the_group, name_of_the_song, duration):
-        self.name_of_the_group = name_of_the_group
-        self.name_of_the_song = name_of_the_song
-        self.duration = duration
+# class MusicPlaylist:
+#     def __init__(self, name_of_the_group, name_of_the_song, duration):
+#         self.name_of_the_group = name_of_the_group
+#         self.name_of_the_song = name_of_the_song
+#         self.duration = duration
 
-    def __str__(self):
-        return f"this is the name of the group {self.name_of_the_group}, this is the name of the song {self.name_of_the_song}"
+#     def __str__(self):
+#         return f"this is the name of the group {self.name_of_the_group}, this is the name of the song {self.name_of_the_song}"
     
-    def __eq__(self, other):
-        return self.duration == other.duration
+#     def __eq__(self, other):
+#         return self.duration == other.duration
     
-    def __lt__(self, other):
-        return self.duration < other.duration
+#     def __lt__(self, other):
+#         return self.duration < other.duration
     
-song1 = MusicPlaylist("Darude", "Sandstorm", 247)
-song2 = MusicPlaylist("Rammstein", "Ohne Dich", 360)
+# song1 = MusicPlaylist("Darude", "Sandstorm", 247)
+# song2 = MusicPlaylist("Rammstein", "Ohne Dich", 360)
 
-print(song1==song2)
-print(song1<song2)
+# print(song1==song2)
+# print(song1<song2)
 
 # Завдання 3: Клас "Часовий інтервал"
 # Створіть клас TimeInterval, який представляє часовий інтервал. Кожен інтервал має атрибути: початкова дата та кінцева дата. Перепишіть магічний метод __contains__, 
 # щоб можна було перевіряти, чи знаходиться певна дата всередині інтервалу.
 
-from datetime import datetime
+# from datetime import datetime
 
-class TimeInterval:
+# class TimeInterval:
 
-    def __init__(self, start_date, end_date):
-        self.start_date = start_date
-        self.end_date = end_date
+#     def __init__(self, start_date, end_date):
+#         self.start_date = start_date
+#         self.end_date = end_date
     
-    def __contains__(self, date):
-        self.date = date
-        return self.start_date <=date <=self.end_date
+#     def __contains__(self, date):
+#         self.date = date
+#         return self.start_date <=date <=self.end_date
 
-time1 = TimeInterval(start_date=datetime(2023, 7, 28), end_date=datetime(2023,8,20))
+# time1 = TimeInterval(start_date=datetime(2023, 7, 28), end_date=datetime(2023,8,20))
 
-if datetime(2023, 10, 30) in time1:
-    print("It's there")
-else:
-    print("It's not there")
+# if datetime(2023, 10, 30) in time1:
+#     print("It's there")
+# else:
+#     print("It's not there")
 
 # Завдання 4: Клас "Студент"
 # Створіть клас Student, який представляє студента. Кожен студент має атрибути: ім'я, курс та середній бал. Перепишіть магічний метод __lt__, 
 # щоб студенти можна було порівнювати за середнім балом, а потім за ім'ям (у разі рівних балів).​
 
-class Student:
-    def __init__(self, name, year, average_score):
-        self.name = name
-        self.year = year
-        self.average_score = average_score
+# class Student:
+#     def __init__(self, name, year, average_score):
+#         self.name = name
+#         self.year = year
+#         self.average_score = average_score
         
-    def __lt__ (self, other):
-        # if self.average_score == other.average_score:
-        #     self.name
-        return self.average_score < other.average_score
+#     def __lt__ (self, other):
+#         # if self.average_score == other.average_score:
+#         #     self.name
+#         return self.average_score < other.average_score
     
 
 
 
+# Unit tests
+
+import unittest
+import unique_names
+from unittest.mock import MagicMock
 
 
+
+class TestUnique(unittest.TestCase):
+    def test_unique_names(self):
+        unique_names.get_names_from_file = MagicMock()
+        unique_names.get_names_from_file.return_value = ['Jack', 'Ross', 'Mike', 'Jack', 'Tom', 'Kate', 'Ross']
+        names = unique_names.get_unique_names("names.txt")
+        self.assertEqual(names, ['Jack', 'Kate', 'Mike', 'Ross', 'Tom'])
+
+if __name__ == "__main__":
+    unittest.main()
+
+    

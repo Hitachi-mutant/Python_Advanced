@@ -10,12 +10,12 @@ class Animal:
         return sound
 
 class Dog(Animal):
-    def talk_dog(self, sound):
-        return super().talk(sound)
+    def talk_dog(self, dog_sound):
+        return super().talk(dog_sound)
 
 class Cat(Animal):
-    def talk_cat(self, sound):
-        return super().talk(sound)
+    def talk_cat(self, cat_sound):
+        return super().talk(cat_sound)
 
 dog = Dog()
 cat = Cat()
