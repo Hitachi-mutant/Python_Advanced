@@ -40,15 +40,20 @@ Also, the book class should have a class variable which holds the amount of all 
 class Library:
     def __init__(self, book_name, all_lib_books = [], authors = []):
         self.book_name = book_name
-        self.books = all_lib_books
+        self.all_lib_books = all_lib_books
         self.authors = authors
 
+    def __str__(self):
+        return f"Library has {len(self.all_lib_books)} of books by authors like {self.authors}"
 
 class Book(Library):
     def __init__(self, book_name, year, author):
         super().__init__(book_name)
         self.year = year
         self.author = author
+    
+    def __str__(self):
+        return f'A wonderful book "{self.book_name}" by {self.author}'
 
 
 
@@ -59,6 +64,8 @@ class Author(Library):
         self.birthday = birthday
         self.authors_books = authors_books
 
+    def __str__(self):
+        return f"{self.authors_name} is {self.age} years old"
 
 '''Task 3 - Fraction:
 Створіть клас Fraction, який буде представляти всю базову арифметичну логіку для дробів (+, -, /, *) 

@@ -45,45 +45,117 @@ Design tests for this solution and write tests using unittest library. '''
 Write tests for the Phonebook application, which you have implemented in module 1. 
 Design tests for this solution and write tests using unittest library'''
 
-import unittest    # already imported in the first task
-import json
-from Lesson_11_Working_with_files import add_new_entry, search_by_first_name, search_by_last_name, search_by_full_name
 
-class TestPhoneBook(unittest.TestCase):
+import json
+import os
+import unittest
+
+def add_new_entry(phone_book_path, new_entry):
+    # Add the new entry to the phone book
+    with open(phone_book_path, "r") as json_file:
+        read_json = json.load(json_file)
+    
+    read_json.append(new_entry)
+    
+    with open(phone_book_path, "w") as json_file:
+        json.dump(read_json, json_file, indent=4)
+
+    
+def search_by_full_name(data, first_name, last_name):
+    return [item for item in data if item['first_name'] == first_name and item['last_name'] == last_name]
+
+def search_by_phone_number(data, phone_number):
+    return [item for item in data if item['telephone_number'] == phone_number]
+
+    
+
+class TestPhoneBookAddEntry(unittest.TestCase):
 
     def setUp(self):
-        # Load a sample phone book JSON
-        self.phone_book_path = 'Lesson_11_Working_with_files/phone_book.json'
-        with open(self.phone_book_path, "r") as json_file:
-            self.sample_phone_book = json.load(json_file)
-    
+        # Create a temporary copy of the phone book JSON for testing
+        self.phone_book_path = 'test_phone_book.json'
+        self.original_phone_book = [
+    {
+        "first_name": "Olivia",
+        "last_name": "Johnson",
+        "telephone_number": "647-748-8602",
+        "city": "Chicago",
+        "state": "IL"
+    },
+    {
+        "first_name": "David",
+        "last_name": "Wilson",
+        "telephone_number": "315-423-1326",
+        "city": "Houston",
+        "state": "TX"
+    }
+        ]
+        
+        with open(self.phone_book_path, 'w') as json_file:
+            json.dump(self.original_phone_book, json_file, indent=4)
+
+    def tearDown(self):
+        # Remove the temporary phone book JSON after testing
+        if os.path.exists(self.phone_book_path):
+            os.remove(self.phone_book_path)
+
     def test_add_new_entry(self):
-        initial_length = len(self.sample_phone_book)
-        
         new_entry = {
-            "first_name": "Test",
-            "last_name": "User",
-            "telephone_number": "123-456-7890",
-            "city": "Testville",
-            "state": "TS"
+            "first_name": "Matthew",
+            "last_name": "Brown",
+            "telephone_number": "725-356-8421",
+            "city": "Seattle",
+            "state": "WA"
         }
-        
+
         add_new_entry(self.phone_book_path, new_entry)
-        
-        with open(self.phone_book_path, "r") as json_file:
+
+        # Check if the new entry is properly added
+        with open(self.phone_book_path, 'r') as json_file:
             updated_phone_book = json.load(json_file)
+
+        self.assertIn(new_entry, updated_phone_book)
+
+    def test_search_by_full_name(self):  
+        with open(self.phone_book_path, 'r') as json_file:
+            updated_phone_book = json.load(json_file)
+        search_result = search_by_full_name(updated_phone_book, "David", "Wilson")
+        expected_result = [{
+        "first_name": "David",
+        "last_name": "Wilson",
+        "telephone_number": "315-423-1326",
+        "city": "Houston",
+        "state": "TX"
+        }]
+
+        self.assertEqual(search_result, expected_result)
+
+    def test_search_by_phone_number(self):
+        with open(self.phone_book_path, 'r') as json_file:
+            updated_phone_book = json.load(json_file)
+        search_by_phone_number_result = search_by_phone_number(updated_phone_book, '647-748-8602')
         
-        updated_length = len(updated_phone_book)
-        
-        self.assertEqual(updated_length, initial_length + 1)
-    
-    def test_search_by_first_name(self):
-        search_result = search_by_first_name(self.sample_phone_book, "Andrew")
-        self.assertTrue(all(entry["first_name"] == "Andrew" for entry in search_result))
-    
-    def test_search_by_last_name(self):
-        search_result = search_by_last_name(self.sample_phone_book, "Taylor")
-        self.assertTrue(all(entry["last_name"] == "Taylor" for entry in search_result))
+        expected_result = [{
+        "first_name": "Olivia",
+        "last_name": "Johnson",
+        "telephone_number": "647-748-8602",
+        "city": "Chicago",
+        "state": "IL"
+        }]
+
+        self.assertEqual(search_by_phone_number_result, expected_result)
+
+    def test_delete_record(self):
+        with open(self.phone_book_path, 'r') as json_file:
+            current_phone_book = json.load(json_file)
+
+        delete_record = [item for item in current_phone_book if item['first_name'] == 'Olivia' and item['last_name'] == 'Johnson']
+        current_phone_book.remove(delete_record[0])
+        with open(self.phone_book_path, "w") as json_file:
+            json.dump(current_phone_book, json_file, indent=4)
+            
+        self.assertNotIn(delete_record, current_phone_book)
+
 
 if __name__ == '__main__':
     unittest.main()
