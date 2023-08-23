@@ -1,0 +1,79 @@
+[
+    {
+        "first_name": "Olivia",
+        "last_name": "Johnson",
+        "telephone_number": "647-748-8602",
+        "city": "Chicago",
+        "state": "IL"
+    },
+    {
+        "first_name": "David",
+        "last_name": "Wilson",
+        "telephone_number": "315-423-1326",
+        "city": "Houston",
+        "state": "TX"
+    },
+    {
+        "first_name": "Michael",
+        "last_name": "Jones",
+        "telephone_number": "556-782-2428",
+        "city": "San Diego",
+        "state": "CA"
+    },
+    {
+        "first_name": "Emily",
+        "last_name": "Taylor",
+        "telephone_number": "727-542-4572",
+        "city": "San Antonio",
+        "state": "TX"
+    },
+    {
+        "first_name": "Andrew",
+        "last_name": "Miller",
+        "telephone_number": "362-179-5263",
+        "city": "Dallas",
+        "state": "TX"
+    },
+    {
+        "first_name": "John",
+        "last_name": "Smith",
+        "telephone_number": "212-387-5263",
+        "city": "New York",
+        "state": "NY"
+    },
+    {
+        "first_name": "Jessica",
+        "last_name": "Brown",
+        "telephone_number": "606-737-3257",
+        "city": "Phoenix",
+        "state": "AZ"
+    },
+    {
+        "first_name": "Daniel",
+        "last_name": "Moore",
+        "telephone_number": "999-999-9999",
+        "city": "Los Angeles",
+        "state": "CA"
+    },
+    {
+        "first_name": "Jane",
+        "last_name": "Williams",
+        "telephone_number": "858-623-4953",
+        "city": "Philadelphia",
+        "state": "PA"
+    },
+    {
+        "first_name": "Matthew",
+        "last_name": "Brown",
+        "telephone_number": "725-356-8421",
+        "city": "Seattle",
+        "state": "WA"
+    },
+    {
+        "first_name": "Matthew",
+        "last_name": "Brown",
+        "telephone_number": "725-356-8421",
+        "city": "Seattle",
+        "state": "WA"
+    }
+]
