@@ -1,4 +1,4 @@
-'''Home work for the lesson 20'''
+'''Home work for the lesson 21'''
 
 '''Task 1 - File Context Manager class:
 Create your own class, which can behave like a built-in function 'open'. 
@@ -52,10 +52,10 @@ with FileHandler_("File_Context_Manager_class.txt", "r") as file:
     print(content)
 
 
-'''Task 2 - Writing tests for context manager
-Take your implementation of the context manager class from Task 1 and write tests for it. 
-Try to cover as many use cases as you can, positive ones when a file exists and everything works as designed. 
-And also, write tests when your class raises errors or you have errors in the runtime context suite.'''
+# '''Task 2 - Writing tests for context manager
+# Take your implementation of the context manager class from Task 1 and write tests for it. 
+# Try to cover as many use cases as you can, positive ones when a file exists and everything works as designed. 
+# And also, write tests when your class raises errors or you have errors in the runtime context suite.'''
 
 import unittest
 #import logging  # imported in the task 1
@@ -104,20 +104,6 @@ Create a test case for this function using pytest library (Full pytest documenta
 Create pytest fixture, which uses your implementation of the context manager to return a file object, 
 which could be used inside your function.'''
 
-def process_text_data(file_obj):
-    content = file_obj.read()
-    word_count = len(content.split())
-    return word_count
-
-
-
-
-
-
-
-
-
-
-
-
-
+# See this task here
+# The tested file: ~\Python\Python_Advanced\test\text_processing.py
+# The file with the tests: ~\Python\Python_Advanced\test\test_my_module.py
